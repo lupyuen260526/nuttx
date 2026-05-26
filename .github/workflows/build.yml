@@ -28,6 +28,7 @@ on:
       - "Documentation/**"
     branches:
       - "releases/*"
+      - "*"
     tags:
 
 permissions:
@@ -73,7 +74,7 @@ jobs:
             # Determine the repo and leave that unset to use the normal checkout behavior
             # of using the merge commit instead of HEAD
             case $GITHUB_REPOSITORY in
-              "apache/nuttx")
+              "lupyuen260526/nuttx")
                 # OS
                 echo "Triggered by change in OS"
                 APPS_REF=$REF_NAME
@@ -97,8 +98,8 @@ jobs:
       - name: Checkout nuttx repo
         uses: actions/checkout@v6
         with:
-          repository: apache/nuttx
-          ref: ${{ steps.gittargets.outputs.os_ref }}
+          repository: lupyuen260526/nuttx
+          ref: pl011-uart
           path: sources/nuttx
           fetch-depth: 1
       - name: Checkout nuttx repo tags
